@@ -17,6 +17,7 @@ function App() {
     setIsRemote(!isLocalhost);
     
     // Use environment variable for backend URL, fallback to localhost
+    // If VITE_BACKEND_URL is not set, default to localhost (for local dev and initial build)
     const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
     
     console.log('Attempting to connect to backend:', backendUrl);
