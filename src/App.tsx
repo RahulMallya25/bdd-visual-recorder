@@ -16,8 +16,8 @@ function App() {
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     setIsRemote(!isLocalhost);
     
-    // Use localhost for local development, otherwise show connection error
-    const backendUrl = isLocalhost ? 'http://localhost:3001' : 'http://localhost:3001';
+    // Use environment variable for backend URL, fallback to localhost
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
     
     console.log('Attempting to connect to backend:', backendUrl);
     console.log('Running in', isLocalhost ? 'LOCAL' : 'REMOTE', 'mode');
